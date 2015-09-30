@@ -1,0 +1,19 @@
+citHeader("To cite JM in publications use:")
+
+citEntry(entry = "Article",
+  title        = "{JM}: An {R} Package for the Joint Modelling of Longitudinal and Time-to-Event Data",
+  author       = personList(as.person("Dimitris Rizopoulos")),
+  journal      = "Journal of Statistical Software",
+  year         = "2010",
+  volume       = "35",
+  number       = "9",
+  pages        = "1--33",
+  url          = "http://www.jstatsoft.org/v35/i09/",
+
+  textVersion  =
+  paste("Dimitris Rizopoulos (2010).",
+        "JM: An R Package for the Joint Modelling of Longitudinal and Time-to-Event Data.",
+        "Journal of Statistical Software, 35(9), 1-33.",
+        "URL http://www.jstatsoft.org/v35/i09/.")
+)
+
