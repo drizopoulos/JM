@@ -1,5 +1,4 @@
-jointModel <-
-function (lmeObject, survObject, timeVar, parameterization = c("value", "slope", "both"), 
+jointModel <- function (lmeObject, survObject, timeVar, parameterization = c("value", "slope", "both"), 
         method = c("weibull-PH-aGH", "weibull-PH-GH", "weibull-AFT-aGH", "weibull-AFT-GH", 
         "piecewise-PH-aGH", "piecewise-PH-GH", "Cox-PH-aGH", "Cox-PH-GH", "spline-PH-aGH", 
         "spline-PH-GH", "ch-Laplace"), interFact = NULL, derivForm = NULL, lag = 0, 

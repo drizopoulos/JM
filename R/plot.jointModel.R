@@ -1,5 +1,4 @@
-plot.jointModel <-
-function (x, which = 1:4, caption = c("Residuals vs Fitted", "Normal Q-Q", "Marginal Survival", 
+plot.jointModel <- function (x, which = 1:4, caption = c("Residuals vs Fitted", "Normal Q-Q", "Marginal Survival", 
     "Marginal Cumulative Hazard", "Marginal log Cumulative Hazard", "Baseline Hazard", "Cumulative Baseline Hazard", 
     "Subject-specific Survival", "Subject-specific Cumulative Hazard", "Subject-specific log Cumulative Hazard"), 
     survTimes = NULL, main = "", ask = prod(par("mfcol")) < length(which) && dev.interactive(), ..., ids = NULL, 
