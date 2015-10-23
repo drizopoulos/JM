@@ -1,5 +1,4 @@
-survfitJM.jointModel <-
-function (object, newdata, idVar = "id", simulate = TRUE, survTimes = NULL, 
+survfitJM.jointModel <- function (object, newdata, idVar = "id", simulate = TRUE, survTimes = NULL, 
             last.time = NULL, M = 200, CI.levels = c(0.025, 0.975), scale = 1.6, ...) {
     if (!inherits(object, "jointModel"))
         stop("Use only with 'jointModel' objects.\n")
@@ -247,6 +246,7 @@ function (object, newdata, idVar = "id", simulate = TRUE, survTimes = NULL,
         res$full.results <- out
         res$success.rate <- success.rate
     }
+    rm(list = ".Random.seed", envir = globalenv())
     class(res) <- "survfitJM"
     res
 }

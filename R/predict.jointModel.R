@@ -279,5 +279,6 @@ function (object, newdata, type = c("Marginal", "Subject"),
         } else
             attr(out, "time.to.pred") <- times.to.pred
     }
+    rm(list = ".Random.seed", envir = globalenv())
     out
 }
