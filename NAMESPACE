@@ -8,17 +8,25 @@ export(aucJM, anova.jointModel, coef.jointModel, crLong, dbs, dns, dynCJM, fitte
 importFrom(nlme, fixed.effects)
 importFrom(nlme, fixef)
 importFrom(nlme, random.effects)
-importFrom(nlme, ranef)
-importFrom(stats, simulate, makepredictcall)
-importFrom(survival, survfit)
-importFrom(survival, coxph)
-importFrom(survival, survreg)
-importFrom(survival, basehaz)
-importFrom(splines, ns)
-importFrom(splines, bs)
-importFrom(splines, splineDesign)
-importFrom(MASS, mvrnorm)
-importFrom(MASS, ginv)
+importFrom("nlme", "ranef")
+importFrom("survival", "survfit", "coxph", "survreg", "basehaz")
+importFrom("splines", "ns", "bs", "splineDesign")
+importFrom("MASS", "mvrnorm", "ginv")
+importFrom("grDevices", "dev.interactive")
+importFrom("graphics", "abline", "axis", "lines", "matlines", "matplot", "mtext", 
+           "panel.smooth", "par", "plot", "polygon")
+importFrom("stats", "AIC", "D", "IQR", "as.formula", "ave", "coef",
+             "complete.cases", "cov", "cov2cor", "delete.response",
+             "dnorm", "drop.terms", "fitted", "formula", "glm",
+             "integrate", "lag", "lm.fit", "logLik", "mad", "median",
+             "model.extract", "model.frame", "model.matrix",
+             "model.response", "na.omit", "nlminb", "optim", "pchisq",
+             "pnorm", "poisson", "qnorm", "qqline", "qqnorm", "quantile",
+             "rchisq", "reformulate", "residuals", "rgamma", "rnorm",
+             "runif", "rweibull", "sd", "terms", "uniroot", "var",
+             "vcov", "simulate", "makepredictcall")
+importFrom("utils", "as.relistable", "combn", "head", "relist", "tail")
+
 
 # S3 methods
 S3method(anova, jointModel)
