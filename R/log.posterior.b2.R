@@ -77,7 +77,7 @@ function (object) {
         if (parameterization %in% c("value", "both")) {
             Xtime.i <- Xtime[idT.i, , drop = FALSE]
             Ztime.i <- Ztime[idT.i, , drop = FALSE]
-            Y <- c(Xtime.i %*% betas) + sum(Ztime.i * b)
+            Y <- c(Xtime.i %*% betas) + rowSums(Ztime.i * rep(b, each = nrow(Ztime.i)))
             Xs.i <- Xs[id.GK.i, , drop = FALSE]
             Zs.i <- Zs[id.GK.i, , drop = FALSE]
             Ys <- as.vector(Xs.i %*% betas + rowSums(Zs.i * rep(b, each = nrow(Zs.i))))
@@ -88,7 +88,7 @@ function (object) {
             Xtime.deriv.i <- Xtime.deriv[idT.i, , drop = FALSE]
             Ztime.deriv.i <- Ztime.deriv[idT.i, , drop = FALSE]
             Y.deriv <- c(Xtime.deriv.i %*% betas[indFixed]) + 
-                sum(Ztime.deriv.i * b[indRandom])
+                rowSums(Ztime.deriv.i * rep(b[indRandom], each = nrow(Ztime.deriv.i)))
             Xs.deriv.i <- Xs.deriv[id.GK.i, , drop = FALSE]
             Zs.deriv.i <- Zs.deriv[id.GK.i, , drop = FALSE]
             Ys.deriv <- as.vector(Xs.deriv.i %*% betas[indFixed]) + 
