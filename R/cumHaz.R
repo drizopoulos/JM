@@ -77,7 +77,12 @@ function (object, alpha.null = FALSE) {
         "slope" = c(Ws.intF.sl %*% Dalpha) * Ys.deriv,
         "both" = c(Ws.intF.vl %*% alpha) * Ys + 
             c(Ws.intF.sl %*% Dalpha) * Ys.deriv)
-    eta.tw <- if (!is.null(W)) as.vector(W %*% gammas) else rep(0, nrow(data.id))
+    eta.tw <- if (!is.null(W)) {
+        if (method == "weibull-PH-GH") 
+            as.vector(cbind(1, W) %*% gammas)
+        else
+            as.vector(W %*% gammas)
+    } else rep(0, nrow(data.id))
     if (length(eta.tw) < length(id))
         eta.tw <- eta.tw[id]
     if (method == "weibull-PH-GH") {

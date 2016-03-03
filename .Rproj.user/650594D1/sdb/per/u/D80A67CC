@@ -1,0 +1,18 @@
+{
+    "contents" : "lmeFit.aids <- lme(CD4 ~ obstime + obstime:drug,random=~obstime|patient,data=aids)\ncoxFit.aids <- coxph(Surv(Time, death)~drug+gender+AZT,data=aids.id,x=TRUE)\njointFit.aids <- jointModel(lmeFit.aids,coxFit.aids,timeVar=\"obstime\",method=\"weibull-PH-GH\")\njointFit.aids\nRhat<-residuals(jointFit.aids,process=\"Event\",type=\"CoxSnell\")\n\nfitted(jointFit.aids, process = \"Event\", type = \"Subject\", scale = \"cumulative-Hazard\")\nobject = jointFit.aids\n",
+    "created" : 1456995253260.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "3030588213",
+    "id" : "D80A67CC",
+    "lastKnownWriteTime" : 7011605692497750387,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
