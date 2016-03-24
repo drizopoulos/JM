@@ -193,7 +193,7 @@ function (x, y, id, initial.values, parameterization, derivForm, control) {
                 S[unq.indT, ] <- rowsum(lambda0[ind.L1] * exp.eta.s, indT, reorder = FALSE)
                 log.survival <- - exp(eta.tw) * S
                 log.p.tb <- d * log.hazard + log.survival
-                p.ytb <- exp((log.p.yb + log.p.tb) + rep(log.p.b, each = n))
+                p.ytb <- exp(log.p.yb + log.p.tb + log.p.b)
                 p.yt <- c(p.ytb %*% wGH)
                 p.byt <- p.ytb / p.yt
                 post.b <- p.byt %*% (b * wGH)

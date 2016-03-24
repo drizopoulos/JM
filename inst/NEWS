@@ -1,9 +1,15 @@
+Changes in version: JM_1.4-4
+
+
+  * Fixed a bug in phGH.fit().
+   
+==============================
+
 Changes in version: JM_1.4-3
 
 
   * Small updates.
    
-
 ==============================
 
 Changes in version: JM_1.4-2
@@ -11,7 +17,6 @@ Changes in version: JM_1.4-2
 
   * Small updates.
    
-
 ==============================
 
 Changes in version: JM_1.3-0
@@ -19,7 +24,6 @@ Changes in version: JM_1.3-0
 
   * Several minor improvements.
    
-
 ==============================
 
 Changes in version: JM_1.2-0
