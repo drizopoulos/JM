@@ -20,7 +20,7 @@ provided.
 Package: \tab JM\cr
 Type: \tab Package\cr
 Version: \tab 1.4-4\cr
-Date: \tab 2016-03-24\cr
+Date: \tab 2016-03-25\cr
 License: \tab \acronym{GPL} \cr
 }
 

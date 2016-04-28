@@ -334,7 +334,7 @@ jointModel <- function (lmeObject, survObject, timeVar, parameterization = c("va
             qs <- c(0, qs, max(Time) + 1)
             Q <- length(qs) - 1
         } else {
-            qs <- c(0, sort(con$knots), max(Time) + 1)
+            qs <- c(0, sort(con$knots) + 1e-06, max(Time) + 1)
             Q <- length(qs) - 1
         }
         ind <- findInterval(Time, qs, rightmost.closed = TRUE)

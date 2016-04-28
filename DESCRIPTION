@@ -1,7 +1,7 @@
 Package: JM
 Title: Joint Modeling of Longitudinal and Survival Data
 Version: 1.4-4
-Date: 2016-03-24
+Date: 2016-03-25
 Author: Dimitris Rizopoulos <d.rizopoulos@erasmusmc.nl>
 Maintainer: Dimitris Rizopoulos <d.rizopoulos@erasmusmc.nl>
 Description: Shared parameter models for the joint modeling of longitudinal and time-to-event data. 
