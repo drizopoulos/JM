@@ -8,7 +8,7 @@ function (object, process = c("Longitudinal", "Event"),
         object$coefficients$betas
     } else {
         gammas <- object$coefficients$gammas
-        if (object$method == "ch-Laplace" && !include.splineCoefs) {
+        if (object$method == "spline-PH-GH" && !include.splineCoefs) {
             ng <- length(gammas)
             nw <- ncol(object$x$W)
             gammas <- if (is.null(nw)) NULL else gammas[seq(ng - nw + 1, ng)]
