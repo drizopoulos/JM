@@ -245,8 +245,8 @@ survfitJM.jointModel <- function (object, newdata, idVar = "id", simulate = TRUE
     if (simulate) {
         res$full.results <- out
         res$success.rate <- success.rate
+        rm(list = ".Random.seed", envir = globalenv())
     }
-    rm(list = ".Random.seed", envir = globalenv())
     class(res) <- "survfitJM"
     res
 }

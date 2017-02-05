@@ -45,7 +45,7 @@ rocJM(object, dt, data, idVar = "id", directionSmaller = NULL, cc = NULL, min.cc
 
 \details{
 (\bold{Note:} the following contain some math formulas, which are better viewed in the pdf version of the manual
-accessible at \url{http://cran.r-project.org/package=JM}.)
+accessible at \url{https://cran.r-project.org/package=JM}.)
 
 Assume that we have collected longitudinal measurements \eqn{Y_i(t) = \{y_i(s); 0 \leq s \leq t\}} up to time point \eqn{t} for
 subject \eqn{i}. We are interested in events occurring in the medically relevant time frame \eqn{(t, t + \Delta t]} within which the

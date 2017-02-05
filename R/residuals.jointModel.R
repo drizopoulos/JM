@@ -44,8 +44,8 @@ function (object, process = c("Longitudinal", "Event"),
             resid.vals
         } else {
             if (object$CompRisk)
-                stop("residuals() with 'MI = TRUE' is not currently implemented for ",
-                    "competing risks joint models.\n")
+                stop("residuals() is not currently implemented for ", 
+                     "competing risks joint models.\n")
             logT <- object$y$logT
             d <- object$y$d
             Xtime <- object$x$Xtime
@@ -110,6 +110,9 @@ function (object, process = c("Longitudinal", "Event"),
             }
         }
     } else {
+        if (object$CompRisk)
+            stop("residuals() is not currently implemented for ", 
+                 "competing risks joint models.\n")
         #fits <- fitted(object, process = "Event", type = "Subject", scale = "cumulative-Hazard")
         #events <- object$y$d
         fits <- cumHaz(object, type == "nullMartingale")
