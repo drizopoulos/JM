@@ -12,7 +12,9 @@ aucJM.coxph <- function (object, newdata, Tstart, Thoriz = NULL, Dt = NULL,
     if (is.null(Thoriz))
         Thoriz <- Tstart + Dt
     Thoriz <- Thoriz + 1e-07
-    newdata$area <- newdata$slope <- 0
+    summary <- match.arg(summary)
+    if (summary %in% c("slope", "area"))
+        newdata$area <- newdata$slope <- 0
     id <- newdata[[idVar]]
     id <- match(id, unique(id))
     TermsT <- object$terms
