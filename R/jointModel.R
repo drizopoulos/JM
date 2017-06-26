@@ -109,7 +109,8 @@ jointModel <- function (lmeObject, survObject, timeVar, parameterization = c("va
             }
     }
     # longitudinal process
-    id <- as.vector(unclass(lmeObject$groups[[1]]))
+    id <- lmeObject$groups[[1]]
+    id <- match(id, unique(id))
     b <- data.matrix(ranef(lmeObject))
     dimnames(b) <- NULL
     nY <- nrow(b)

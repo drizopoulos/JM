@@ -1,5 +1,11 @@
-Changes in version: JM_1.4-6
+Changes in version: JM_1.4-7
 
+  * Changed the definition of JM:::rmvt() to work under the shifted method (noted by Graeme Hickey).
+  * Resolved issue with non-ordered id numbers in the longitudinal submodel.
+
+==============================
+
+Changes in version: JM_1.4-6
 
   * Updated aucJM() method.
    
