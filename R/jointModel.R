@@ -135,7 +135,7 @@ jointModel <- function (lmeObject, survObject, timeVar, parameterization = c("va
     # check if there are any longitudinal measurements after the event times
     max.timeY <- tapply(data[[timeVar]], id, max)
     max.timeT <- tapply(Time, idT, max)
-    if (!all(max.timeT >= max.timeY)) {
+    if (!isTRUE(all.equal(max.timeT,max.timeY))) {
         idnams <- factor(lmeObject$groups[[1]])
         stop("\nit seems that there are longitudinal measurements taken after the event times for some subjects ",
             "(i.e., check subject(s): ", paste(levels(idnams)[(max.timeT < max.timeY)], collapse = ", "), ").")
