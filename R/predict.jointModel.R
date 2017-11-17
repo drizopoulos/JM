@@ -277,8 +277,9 @@ function (object, newdata, type = c("Marginal", "Subject"),
                 rbind(newdata, cbind(data.id2, pred = out))
             }
         } else
-            attr(out, "time.to.pred") <- times.to.pred
+            attr(out, "time.to.pred") <- times.to.pred 
+    
+    rm(list = ".Random.seed", envir = globalenv())        
     }
-    rm(list = ".Random.seed", envir = globalenv())
     out
 }
