@@ -60,9 +60,9 @@ function (x, estimator = c("both", "mean", "median"), which = NULL, fun = NULL, 
         if (!is.null(fun) && is.function(fun))
             r[, 2:ncol(r)] <- fun(r[, 2:ncol(r)])
         if (!is.null(x$success.rate) && estimator == "mean")
-            r <- r[, -2]
-        if (!is.null(x$success.rate) && estimator == "median")
             r <- r[, -3]
+        if (!is.null(x$success.rate) && estimator == "median")
+            r <- r[, -2]
         if (!conf.int && !is.null(x$success.rate)) {
             exc <- c(ncol(r) - 1, ncol(r))
             r <- r[, -exc, drop = FALSE]
