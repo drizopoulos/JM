@@ -47,8 +47,7 @@
   let \eqn{X} denote the fixed-effects design matrix calculated using
   \code{newdata}. The \code{predict()} calculates \eqn{\hat{y} = X \hat{\beta}},
   and if \code{interval = "confidence"}, \eqn{var(\hat{y}) = X V X^t}, with \eqn{V}
-  denoting the covariance matrix of \eqn{\hat{\beta}}. The confidence interval
-  is based on a normal approximation. Confidence intervals are constructed under 
+  denoting the covariance matrix of \eqn{\hat{\beta}}. Confidence intervals are constructed under 
   the normal approximation.
   
   When \code{type = "Subject"}, this functions computes subject-specific 
