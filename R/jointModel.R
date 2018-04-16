@@ -133,9 +133,9 @@ jointModel <- function (lmeObject, survObject, timeVar, parameterization = c("va
     if (!timeVar %in% names(data))
         stop("\n'timeVar' does not correspond to one of the columns in the model.frame of 'lmeObject'.")
     # check if there are any longitudinal measurements after the event times
-    max.timeY <- tapply(data[[timeVar]], id, max)
-    max.timeT <- tapply(Time, idT, max)
-    if (!isTRUE(all.equal(max.timeT, max.timeY))) {
+    max.timeY <- tapply(data[[timeVar]], factor(id, unique(id)), max)
+    max.timeT <- tapply(Time, factor(idT, unique(idT)), max)
+    if (!isTRUE(all(max.timeT >= max.timeY))) {
         idnams <- factor(lmeObject$groups[[1]])
         stop("\nit seems that there are longitudinal measurements taken after the event times for some subjects ",
             "(i.e., check subject(s): ", paste(levels(idnams)[(max.timeT < max.timeY)], collapse = ", "), ").")
