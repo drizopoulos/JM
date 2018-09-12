@@ -181,7 +181,10 @@ plot.jointModel <- function (x, which = 1:4, caption = c("Residuals vs Fitted", 
                 id.GK <- rep(1:n, rowSums(!is.na(st)))
                 if (parameterization %in% c("value", "both")) {
                     mfX <- model.frame(x$termsYx, data = data.id2)
+                    na_exclude <- attr(mfX, "na.action")
                     mfZ <- model.frame(x$termsYz, data = data.id2)
+                    if (!is.null(na_exclude))
+                        mfZ <- mfZ[-na_exclude, , drop = FALSE]
                     Xs <- model.matrix(x$formYx, mfX)
                     Zs <- model.matrix(x$formYz, mfZ)
                     #Zs <- Zs[!is.na(data.id2[[x$timeVar]]), ]
@@ -190,7 +193,10 @@ plot.jointModel <- function (x, which = 1:4, caption = c("Residuals vs Fitted", 
                 }
                 if (parameterization %in% c("slope", "both")) {
                     mfX.deriv <- model.frame(x$termsYx.deriv, data = data.id2)
+                    na_exclude <- attr(mfX.deriv, "na.action")
                     mfZ.deriv <- model.frame(x$termsYz.deriv, data = data.id2)
+                    if (!is.null(na_exclude))
+                        mfZ.deriv <- mfZ[-na_exclude, , drop = FALSE]
                     Xs.deriv <- model.matrix(derivForm$fixed, mfX.deriv)
                     Zs.deriv <- model.matrix(derivForm$random, mfZ.deriv)
                     #Zs.deriv <- Zs.deriv[!is.na(data.id2[[x$timeVar]]), ]
