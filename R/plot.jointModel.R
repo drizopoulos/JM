@@ -183,7 +183,7 @@ plot.jointModel <- function (x, which = 1:4, caption = c("Residuals vs Fitted", 
                     mfX <- model.frame(x$termsYx, data = data.id2)
                     na_exclude <- attr(mfX, "na.action")
                     mfZ <- model.frame(x$termsYz, data = data.id2)
-                    if (!is.null(na_exclude))
+                    if (!is.null(na_exclude) && is.null(attr(mfZ, "na.action")))
                         mfZ <- mfZ[-na_exclude, , drop = FALSE]
                     Xs <- model.matrix(x$formYx, mfX)
                     Zs <- model.matrix(x$formYz, mfZ)
@@ -195,7 +195,7 @@ plot.jointModel <- function (x, which = 1:4, caption = c("Residuals vs Fitted", 
                     mfX.deriv <- model.frame(x$termsYx.deriv, data = data.id2)
                     na_exclude <- attr(mfX.deriv, "na.action")
                     mfZ.deriv <- model.frame(x$termsYz.deriv, data = data.id2)
-                    if (!is.null(na_exclude))
+                    if (!is.null(na_exclude) && is.null(attr(mfZ.deriv, "na.action")))
                         mfZ.deriv <- mfZ[-na_exclude, , drop = FALSE]
                     Xs.deriv <- model.matrix(derivForm$fixed, mfX.deriv)
                     Zs.deriv <- model.matrix(derivForm$random, mfZ.deriv)
