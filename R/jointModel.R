@@ -71,8 +71,8 @@ jointModel <- function (lmeObject, survObject, timeVar, parameterization = c("va
             Time <- survObject$y[, 2]
             d <- survObject$y[, 3]
         }
-        idT <- if (!is.null(survObject$model$cluster)) {
-            as.vector(unclass(survObject$model$cluster))
+        idT <- if (!is.null(survObject$model$`(cluster)`)) {
+            as.vector(unclass(survObject$model$`(cluster)`))
         } else {
             if (!CompRisk) seq_along(Time)
             else rep(seq_len(length(Time)/nRisks), each = nRisks)
@@ -87,7 +87,7 @@ jointModel <- function (lmeObject, survObject, timeVar, parameterization = c("va
         nRisks <- 1
     }
     nT <- length(unique(idT))
-    if (LongFormat && is.null(survObject$model$cluster))
+    if (LongFormat && is.null(survObject$model$`(cluster)`))
         stop("\nuse argument 'model = TRUE' and cluster() in coxph().")
     if (!length(W))
         W <- NULL
@@ -137,8 +137,8 @@ jointModel <- function (lmeObject, survObject, timeVar, parameterization = c("va
     max.timeT <- tapply(Time, factor(idT, unique(idT)), max)
     if (!isTRUE(all(max.timeT >= max.timeY))) {
         idnams <- factor(lmeObject$groups[[1]])
-        stop("\nit seems that there are longitudinal measurements taken after the event times for some subjects ",
-            "(i.e., check subject(s): ", paste(levels(idnams)[(max.timeT < max.timeY)], collapse = ", "), ").")
+        #stop("\nit seems that there are longitudinal measurements taken after the event times for some subjects ",
+        #    "(i.e., check subject(s): ", paste(levels(idnams)[(max.timeT < max.timeY)], collapse = ", "), ").")
     }
     # extra design matrices for the longitudinal part
     data.id[[timeVar]] <- pmax(Time - lag, 0)
