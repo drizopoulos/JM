@@ -57,9 +57,10 @@ function (b, y, Mats, method, ii) {
         - sum(exp(eta.tw) * P * tapply(wk * Vi, idT, sum))
     } else if (method == "piecewise-PH-GH") {
         P <- P[!is.na(P)]
-        ind.K <- rep(seq_len(ind), each = 7)
+        kn <- length(object$control$knots)
+        ind.K <- rep(seq_len(ind), each = kn)
         wk <- rep(wk, ind)
-        wkP <- wk * rep(P, each = 7)
+        wkP <- wk * rep(P, each = kn)
         eta.tw <- if (!is.null(W)) as.vector(W[i, , drop = FALSE] %*% gammas.new) else 0 
         - exp(eta.tw) * sum(xi.new[ind.K] * wkP * exp(tt))
     }

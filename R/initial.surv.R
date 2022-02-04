@@ -98,7 +98,7 @@ function (Time, d, W, WintF.vl, WintF.sl, id, times, method,
         if (method == "weibull-PH-GH") {
             dat <- data.frame(Time = Time, d = d)
             init.fit <- survreg(Surv(Time, d) ~ WW, data = dat)
-            coefs <- - init.fit$coef / init.fit$scale
+            coefs <- - init.fit$coefficients / init.fit$scale
             out$gammas <- c(coefs[1], out$gammas)
             out$sigma.t <- 1 / init.fit$scale
         }
@@ -106,7 +106,7 @@ function (Time, d, W, WintF.vl, WintF.sl, id, times, method,
             dat <- data.frame(Time = Time, d = d)
             cph. <- coxph(Surv(Time, d) ~ WW, data = dat, x = TRUE)
             init.fit <- piecewiseExp.ph(cph., knots = extra$control$knots)
-            coefs <- init.fit$coef
+            coefs <- init.fit$coefficients
             out$xi <- exp(coefs[grep("xi", names(coefs))])
         }
         if (method == "spline-PH-GH" || method == "spline-PH-Laplace") {
@@ -116,7 +116,7 @@ function (Time, d, W, WintF.vl, WintF.sl, id, times, method,
                 ind <- row.names(dat) %in% rn
                 dat <- dat[ind, ]
                 init.fit <- survreg(Surv(Time, d) ~ ., data = dat)
-                coefs <- init.fit$coef
+                coefs <- init.fit$coefficients
                 xi <- 1 / init.fit$scale
                 phi <- exp(coefs[1])
                 logh <- -log(phi * xi * dat$Time^(xi - 1))
@@ -136,7 +136,7 @@ function (Time, d, W, WintF.vl, WintF.sl, id, times, method,
                     ind <- row.names(SpD.i) %in% rn
                     SpD.i <- SpD.i[ind, ]
                     init.fit <- survreg(Surv(Time, d) ~ ., data = SpD.i)
-                    coefs <- init.fit$coef
+                    coefs <- init.fit$coefficients
                     xi <- 1 / init.fit$scale
                     phi <- exp(coefs[1])
                     logh <- -log(phi * xi * SpD.i$Time^(xi - 1))

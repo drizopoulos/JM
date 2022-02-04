@@ -1,9 +1,29 @@
+chol_transf <- function (x) {
+    if (any(is.na(x) | !is.finite(x)))
+        stop("NA or infinite values in 'x'.\n")
+    if (is.matrix(x)) {
+        k <- nrow(x)
+        U <- chol(x)
+        U[cbind(1:k, 1:k)] <- log(U[cbind(1:k, 1:k)])
+        U[upper.tri(U, TRUE)]
+    } else {
+        nx <- length(x)
+        k <- round((-1 + sqrt(1 + 8 * nx))/2)
+        mat <- matrix(0, k, k)
+        mat[upper.tri(mat, TRUE)] <- x
+        mat[cbind(1:k, 1:k)] <- exp(mat[cbind(1:k, 1:k)])
+        res <- crossprod(mat)
+        attr(res, "L") <- t(mat)[lower.tri(mat, TRUE)]
+        res
+    }
+}
+
 marginal_coefs <- function (object, std_errors = FALSE, M = 2000, L = 200) {
-    
+    if (!inherits(object, "jointModel"))
+        stop("Use only with 'jointModel' objects.\n")
     if (!object$parameterization == "value") {
         stop("parameterization must be 'value'.\n")
     }
-    
     TermsX <- object$termsYx
     TermsZ <- object$termsYz
     TermsT <- object$termsT
@@ -37,8 +57,8 @@ marginal_coefs <- function (object, std_errors = FALSE, M = 2000, L = 200) {
     Z <- model.matrix(TermsZ, data = data)
     nRE <- ncol(Z)
     n <- nrow(data)
-    wk <- JM:::gaussKronrod()$wk
-    sk <- JM:::gaussKronrod()$sk
+    wk <- gaussKronrod()$wk
+    sk <- gaussKronrod()$sk
     K <- length(sk)
     P <- times/2
     st <- outer(P, sk + 1)
@@ -102,7 +122,9 @@ marginal_coefs <- function (object, std_errors = FALSE, M = 2000, L = 200) {
     if (std_errors) {
         D <- object$coefficients[['D']]
         diag_D <- all(abs(D[lower.tri(D)]) < sqrt(.Machine$double.eps))
-        list_thetas <- list(betas = betas, gammas= gammas, alpha = alpha, gammas.bs = gammas.bs, D = if (diag_D) log(diag(D)) else chol_transf(D))
+        list_thetas <- list(betas = betas, gammas= gammas, alpha = alpha, 
+                            gammas.bs = gammas.bs, 
+                            D = if (diag_D) log(diag(D)) else chol_transf(D))
         tht <- unlist(as.relistable(list_thetas))
         index <- c(1:length(betas), 
                    (length(betas)+2):(length(betas)+2+length(gammas)), 
