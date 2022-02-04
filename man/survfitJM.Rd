@@ -93,7 +93,7 @@ Rizopoulos, D. (2011). Dynamic predictions and prospective accuracy in joint mod
 \emph{Biometrics} \bold{67}, 819--829.
 
 Rizopoulos, D. (2010) JM: An R Package for the Joint Modelling of Longitudinal and Time-to-Event Data. 
-\emph{Journal of Statistical Software} \bold{35} (9), 1--33. \url{http://www.jstatsoft.org/v35/i09/}
+\emph{Journal of Statistical Software} \bold{35} (9), 1--33. \doi{10.18637/jss.v035.i09}
 }
 
 \author{Dimitris Rizopoulos \email{d.rizopoulos@erasmusmc.nl}}

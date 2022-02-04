@@ -54,7 +54,7 @@ Rizopoulos, D. (2012) \emph{Joint Models for Longitudinal and Time-to-Event Data
 Applications in R}. Boca Raton: Chapman and Hall/CRC.
 
 Rizopoulos, D. (2010) JM: An R Package for the Joint Modelling of Longitudinal and Time-to-Event Data. 
-\emph{Journal of Statistical Software} \bold{35} (9), 1--33. \url{http://www.jstatsoft.org/v35/i09/}
+\emph{Journal of Statistical Software} \bold{35} (9), 1--33. \doi{10.18637/jss.v035.i09}
 }
 
 \author{Dimitris Rizopoulos \email{d.rizopoulos@erasmusmc.nl}}

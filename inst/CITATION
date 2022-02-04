@@ -8,12 +8,12 @@ citEntry(entry = "Article",
   volume       = "35",
   number       = "9",
   pages        = "1--33",
-  url          = "http://www.jstatsoft.org/v35/i09/",
+  url          = "https://doi.org/10.18637/jss.v035.i09",
 
   textVersion  =
   paste("Dimitris Rizopoulos (2010).",
         "JM: An R Package for the Joint Modelling of Longitudinal and Time-to-Event Data.",
         "Journal of Statistical Software, 35(9), 1-33.",
-        "URL http://www.jstatsoft.org/v35/i09/.")
+        "URL https://doi.org/10.18637/jss.v035.i09")
 )
 

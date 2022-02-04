@@ -120,7 +120,7 @@ Rizopoulos, D. (2011). Dynamic predictions and prospective accuracy in joint mod
 and time-to-event data. \emph{Biometrics} \bold{67}, 819--829.
 
 Rizopoulos, D. (2010) JM: An R package for the joint modelling of longitudinal and time-to-event data. 
-\emph{Journal of Statistical Software} \bold{35} (9), 1--33. \url{http://www.jstatsoft.org/v35/i09/}
+\emph{Journal of Statistical Software} \bold{35} (9), 1--33. \doi{10.18637/jss.v035.i09}
 
 Zheng, Y. and Heagerty, P. (2007). Prospective accuracy for longitudinal markers.
 \emph{Biometrics} \bold{63}, 332--341.

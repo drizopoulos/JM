@@ -81,7 +81,7 @@ Rizopoulos, D., Verbeke, G. and Molenberghs, G. (2010) Multiple-imputation-based
 for joint models of longitudinal and survival outcomes. \emph{Biometrics} \bold{66}, 20--29.
 
 Rizopoulos, D. (2010) JM: An R Package for the Joint Modelling of Longitudinal and Time-to-Event Data. 
-\emph{Journal of Statistical Software} \bold{35} (9), 1--33. \url{http://www.jstatsoft.org/v35/i09/}
+\emph{Journal of Statistical Software} \bold{35} (9), 1--33. \doi{10.18637/jss.v035.i09}
 }
 
 \seealso{\code{\link{fitted.jointModel}}}

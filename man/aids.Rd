@@ -28,11 +28,6 @@
   }
 }
 
-\source{
-  \url{http://www.biostat.umn.edu/~brad/data.html}, 
-  \url{http://www.biostat.umn.edu/~brad/software.html}
-}
-
 \references{
 Goldman, A., Carlin, B., Crane, L., Launer, C., Korvick, J., Deyton, L. and Abrams, D. (1996) Response of CD4+ and
 clinical consequences to treatment using ddI or ddC in patients with advanced HIV infection. \emph{Journal of Acquired
