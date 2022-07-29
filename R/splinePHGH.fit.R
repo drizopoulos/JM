@@ -422,7 +422,7 @@ function (x, y, id, initial.values, parameterization, derivForm, control) {
             rowSums(Ztime * post.b[idT, , drop = FALSE])
         } else NULL,
         Ztimeb.deriv = if (parameterization %in% c("slope", "both")) {
-            if (indRandom) {
+            if (length(indRandom)) {
                     rowSums(Ztime.deriv * post.b[idT, indRandom, drop = FALSE])
             } else rep(0, nrow(Ztime.deriv))
         } else NULL), iters = it, convergence = conv, n = n, N = N, ni = ni, d = d, id = id)

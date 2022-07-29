@@ -403,7 +403,7 @@ function (x, y, id, initial.values, parameterization, derivForm, control) {
         Zb = if (iter == 0) rowSums(Z * post.b[id, ], na.rm = TRUE) else Zb, 
         Ztimeb = if (parameterization %in% c("value", "both")) rowSums(Ztime * post.b) else NULL,
         Ztimeb.deriv = if (parameterization %in% c("slope", "both")) {
-            if (indRandom) rowSums(Ztime.deriv * post.b[, indRandom, drop = FALSE]) else rep(0, nrow(Ztime.deriv))
+            if (length(indRandom)) rowSums(Ztime.deriv * post.b[, indRandom, drop = FALSE]) else rep(0, nrow(Ztime.deriv))
         } else NULL), 
         iters = it, convergence = conv, n = n, N = N, ni = ni, d = d, id = id)
 }
