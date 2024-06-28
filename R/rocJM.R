@@ -107,7 +107,7 @@ function (object, dt, data, idVar = "id", directionSmaller = NULL, cc = NULL,
     D <- object$coefficients$D
     diag.D <- ncol(D) == 1 & nrow(D) > 1
     D <- if (diag.D) diag(c(D)) else D
-    gammas <- object$coefficients$gammas
+    gammas <- object$coefficients[['gammas']]
     alpha <- object$coefficients$alpha
     Dalpha <- object$coefficients$Dalpha
     sigma.t <- object$coefficients$sigma.t
